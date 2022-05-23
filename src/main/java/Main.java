@@ -71,6 +71,7 @@ public class Main {
         System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
         System.out.println("failed list");
         System.out.println(failed.toString());
+        NumberToSendWhatsapp t= new NumberToSendWhatsapp(3252,325);
     }
 
 }
