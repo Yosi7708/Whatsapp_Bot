@@ -24,7 +24,7 @@ public class Main {
 //     לינק ישיר לשליחת הודעה למספר
 //        driver.get("https://web.whatsapp.com/send?phone=972" + phone.substring(1) + "&text=" + msg + "&app_absent=0");
         driver.get("https://web.whatsapp.com/send?phone=972"+ phone.substring(1) +"&text&app_absent=0");
-        Thread.sleep(4000);//יעקב: למה אתה עושה המתנה?
+        Thread.sleep(4000);
 //        מילוי הודעה ידני - 2 דרכים
         WebElement messageText = driver.findElement(By.xpath("//div[@id='main']/footer/div/div/span[2]/div/div[2]/div/div/div[2]"));
         messageText.sendKeys(msg);
