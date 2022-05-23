@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[]  args) throws Exception{
+        // test for Yuda(:
         Scanner scanner= new Scanner(System.in);
         String phone, msg;
 //        System.out.println("Enter the number");
