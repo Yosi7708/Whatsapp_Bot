@@ -24,6 +24,7 @@ public class GUI extends JFrame {
             this.contactsList.add(new Contacts(userNum, userName));
 
         });
+        System.out.println(contactsList);
 
     }
 
@@ -38,24 +39,23 @@ public class GUI extends JFrame {
 
 
         JLabel msg = new JLabel("הכנס מספר");
-        addComponent(msg, WIDTH / 2, 20, 150, 150, new Font("David", Font.ITALIC, 20));
-
-        JTextField numFiled = new JTextField();
-        addComponent(numFiled, msg.getX(), msg.getY() + msg.getHeight(), msg.getWidth(), msg.getHeight(), new Font("David", Font.ITALIC, 20));
-        numFiled.setBackground(Color.LIGHT_GRAY);
-
+        addComponent(msg, WIDTH / 2-75, 20, 150, 100, new Font("David", Font.ITALIC, 20));
 
         JTextField nameFiled = new JTextField();
-        addComponent(numFiled, numFiled.getX(), numFiled.getY() + numFiled.getHeight(), numFiled.getWidth(), numFiled.getHeight(), new Font("David", Font.ITALIC, 20));
+        addComponent(nameFiled, msg.getX(), msg.getY() + msg.getHeight(), msg.getWidth(), msg.getHeight(), new Font("David", Font.ITALIC, 20));
+        nameFiled.setBackground(Color.LIGHT_GRAY);
+
+
+        JTextField numFiled = new JTextField();
+        addComponent(numFiled, nameFiled.getX(), nameFiled.getY() + nameFiled.getHeight()+10, nameFiled.getWidth(), nameFiled.getHeight(), new Font("David", Font.ITALIC, 20));
         numFiled.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
 
 
         JButton saveButton = new JButton("שמור והוסף");
-        addComponent(saveButton, numFiled.getX() + 20,
-                numFiled.getY() + numFiled.getHeight() + 20,
+        addComponent(saveButton, numFiled.getX() , numFiled.getY()+numFiled.getHeight()+10,
                 numFiled.getWidth(),
-                numFiled.getHeight(), new Font("David", Font.ITALIC, 20));
+                numFiled.getHeight()/2, new Font("David", Font.ITALIC, 20));
         addNumber(saveButton, numFiled, nameFiled);
 
 
@@ -63,6 +63,7 @@ public class GUI extends JFrame {
 
     public static void main(String[] args) {
         new GUI();
+
     }
 
 }

@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[]  args) throws Exception{
-        // test for Yuda(:
+
         Scanner scanner= new Scanner(System.in);
         String phone, msg;
 //        System.out.println("Enter the number");
@@ -18,7 +18,7 @@ public class Main {
         msg= scanner.nextLine();
         LinkedList<Contacts> contacts=new LinkedList<Contacts>();
         LinkedList<Contacts> failed=new LinkedList<Contacts>();
-        contacts.add(new Contacts("0587903770","ישראל"));
+        contacts.add(new Contacts("0586609770","ישי"));
         contacts.add(new Contacts("057555","דוד"));
         contacts.add(new Contacts("0587","דוד"));
         contacts.add(new Contacts("057","דוד"));
@@ -71,7 +71,6 @@ public class Main {
         System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
         System.out.println("failed list");
         System.out.println(failed.toString());
-        NumberToSendWhatsapp t= new NumberToSendWhatsapp(3252,325);
     }
 
 }
