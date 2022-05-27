@@ -7,25 +7,34 @@ public class GUI extends JFrame {
 
     private final static int WIDTH = 500;
     private final static int HEIGHT = 500;
-    private LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
+    private static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
 
 
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
+        //פקודת יישור מימין לשמאל,ויזואלית יפה יותר ל"הוסף מספר" אבל עובדת גם בתיבות טקסט...
+        component.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
         component.setBounds(x, y, width, height);
         component.setFont(font);
         this.add(component);
     }
 
     public void addNumber(JButton button, JTextField name, JTextField number) {
-
         button.addActionListener((event) -> {
-            String userName = name.getText();
+            String userName= name.getText();
             String userNum = number.getText();
-            this.contactsList.add(new Contacts(userNum, userName));
+
+            this.contactsList.add(new Contacts(userName, userNum));
+            //הדפסת הרשימה העכשווית לקונסוך לצוקך בדיקה בלבד
+            print();
 
         });
-        System.out.println(contactsList);
 
+
+
+    }
+    public void print(){
+        System.out.println(contactsList.toString());
     }
 
 
@@ -38,7 +47,7 @@ public class GUI extends JFrame {
         this.setLayout(null);
 
 
-        JLabel msg = new JLabel("הכנס מספר");
+        JLabel msg = new JLabel(" הכנס מספר");
         addComponent(msg, WIDTH / 2-75, 20, 150, 100, new Font("David", Font.ITALIC, 20));
 
         JTextField nameFiled = new JTextField();
@@ -61,8 +70,9 @@ public class GUI extends JFrame {
 
     }
 
-    public static void main(String[] args) {
-        new GUI();
+    public static void main(String[] args) throws Exception {
+            new GUI();
+
 
     }
 
