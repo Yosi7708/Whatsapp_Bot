@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
 
-public class GUI extends JFrame {
+public class addContacsWindow extends JFrame {
 
 
     private final static int WIDTH = 500;
@@ -24,7 +24,10 @@ public class GUI extends JFrame {
             String userName= name.getText();
             String userNum = number.getText();
 
+
             this.contactsList.add(new Contacts(userName, userNum));
+            name.setText("");
+            number.setText("");
             //הדפסת הרשימה העכשווית לקונסוך לצוקך בדיקה בלבד
             print();
 
@@ -38,10 +41,10 @@ public class GUI extends JFrame {
     }
 
 
-    public GUI() {
+    public addContacsWindow() {
 
         this.setSize(WIDTH, HEIGHT);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setLayout(null);
@@ -69,9 +72,15 @@ public class GUI extends JFrame {
 
 
     }
+    public static boolean checkIfContactsListEmpty(){
+        return contactsList.isEmpty();
+    }
+    public static LinkedList<Contacts> getContactsList(){
+        return contactsList;
+    }
 
     public static void main(String[] args) throws Exception {
-            new GUI();
+            new addContacsWindow();
 
 
     }

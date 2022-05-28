@@ -8,30 +8,33 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[]  args) throws Exception{
+       new MainWindows();
 
-        Scanner scanner= new Scanner(System.in);
-        String phone, msg;
-//        System.out.println("Enter the number");
-//        phone= scanner.next();
-//        scanner.nextLine();
-        System.out.println("Enter the message");
-        msg= scanner.nextLine();
-        LinkedList<Contacts> contacts=new LinkedList<Contacts>();
-        LinkedList<Contacts> failed=new LinkedList<Contacts>();
-        contacts.add(new Contacts("0586609770","ישי"));
-        contacts.add(new Contacts("057555","דוד"));
-        contacts.add(new Contacts("0587","דוד"));
-        contacts.add(new Contacts("057","דוד"));
-        contacts.add(new Contacts("0538203770","יוסי"));
+    }
+    public static void sendMessage(LinkedList<Contacts> contactsList, String msg) throws Exception{
+//        Scanner scanner= new Scanner(System.in);
+//        String phone, msg;
+////        System.out.println("Enter the number");
+////        phone= scanner.next();
+////        scanner.nextLine();
+//        System.out.println("Enter the message");
+//        msg= scanner.nextLine();
+//        LinkedList<Contacts> contacts=new LinkedList<Contacts>();
+//        LinkedList<Contacts> failed=new LinkedList<Contacts>();
+//        contacts.add(new Contacts("0586609770","ישי"));
+//        contacts.add(new Contacts("057555","דוד"));
+//        contacts.add(new Contacts("0587","דוד"));
+//        contacts.add(new Contacts("057","דוד"));
+//        contacts.add(new Contacts("0538203770","יוסי"));
 
-        System.setProperty("webdriver.chrome.driver","C:\\files\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=C:\\Users\\tzirkus\\AppData\\Local\\Google\\Chrome\\User Data");
         ChromeDriver driver = new ChromeDriver(options);
         options.addArguments("--start-maximized");
         driver.get("https://web.whatsapp.com/");
 
-        for(Contacts x: contacts){
+        for(Contacts x: contactsList){
 
             try {
                 driver.navigate().to("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
@@ -53,7 +56,7 @@ public class Main {
 //       driver.findElement(By.id("send")).click();
 
             }catch (Exception e) {
-                failed.add(new Contacts(x));
+//                failed.add(new Contacts(x));
                 continue;
             }
 
@@ -68,9 +71,10 @@ public class Main {
         driver.quit();
 
 
-        System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
-        System.out.println("failed list");
-        System.out.println(failed.toString());
+//        System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
+//        System.out.println("failed list");
+//        System.out.println(failed.toString());
+
     }
 
 }
