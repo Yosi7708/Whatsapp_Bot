@@ -7,19 +7,34 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
+    static ChromeDriver driver;
     public static void main(String[]  args) throws Exception{
+        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
        new MainWindows();
 
     }
+    public static void openBrowser() throws InterruptedException {
+        boolean isConnected= false;
+        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        driver=new ChromeDriver(options);
+
+        options.addArguments("--start-maximized");
+        driver.get("https://web.whatsapp.com/");
+        Thread.sleep(3000);
+
+
+    }
+
     public static void sendMessage(LinkedList<Contacts> contactsList, String msg) throws Exception{
 
 
         System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("user-data-dir=C:\\Users\\tzirkus\\AppData\\Local\\Google\\Chrome\\User Data");
-        ChromeDriver driver = new ChromeDriver(options);
-        options.addArguments("--start-maximized");
-        driver.get("https://web.whatsapp.com/");
+//        options.addArguments("user-data-dir=C:\\Users\\tzirkus\\AppData\\Local\\Google\\Chrome\\User Data");
+//        ChromeDriver driver = new ChromeDriver(options);
+//        options.addArguments("--start-maximized");
+//        driver.get("https://web.whatsapp.com/");
 
         for(Contacts x: contactsList){
 

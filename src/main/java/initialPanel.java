@@ -2,12 +2,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class initialPanel extends JPanel implements ActionListener {
 
 
-    static final int SCREEN_WIDTH = 350;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
-    static final int SCREEN_HEIGHT = 750;
+    static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
+    static final int SCREEN_HEIGHT = 800;
     static boolean running= false;
 
 
@@ -17,14 +18,14 @@ public class initialPanel extends JPanel implements ActionListener {
         this.add(jPanel);
         jPanel.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         jPanel.setBackground(new Color(245,245,220));
-        JButton connect= new JButton("conect");
+        JButton connect= new JButton("connect");
         jPanel.add(connect);
         connect.setBounds(jPanel.getX()/2,jPanel.getHeight()/2,150,100);
         connect.setVisible(true);
         this.setFocusable(true);
 
         try{
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         }catch(Exception e){
 
         }
@@ -33,23 +34,58 @@ public class initialPanel extends JPanel implements ActionListener {
 
 
         connect.addActionListener((event) -> {
-            try {
+            try{
+                Main.openBrowser();
 
-//                Main.openBrowser();
-                // לחלק את הפונקציה של שליחת הודעה ל2 אחד לפתיחת דפדפן ואחד לשליחת ההודעות
             }catch (Exception e){
 
             }
 
 
 
+            successPanel();
 
         });
 
 
 
 
+
     }
+    public void successPanel() {
+        this.setLayout(new java.awt.BorderLayout());
+        this.removeAll();
+
+        JLabel jLabel=new JLabel("succcessful");
+        this.add(jLabel);
+        jLabel.setVisible(true);
+        jLabel.setBounds(600,400,100,100);
+        this.revalidate();
+
+        secondPanel();
+
+    }
+    public void secondPanel(){
+        JOptionPane.showMessageDialog(null,"successful");
+        this.removeAll();
+        this.add(new MainPanel());
+        this.revalidate();
+
+    }
+//    public void second(){
+//        JTextField massageBox = new JTextField();
+//        massageBox.setBackground(Color.LIGHT_GRAY);
+//        addComponent(massageBox,(SCREEN_WIDTH-Elemnts_Width)/2,SCREEN_HEIGHT/2,Elemnts_Width,100,myDefaultFont);
+//
+//        JButton sendButton = new JButton("שלח הודעה");
+//        addComponent(sendButton, massageBox.getX() , massageBox.getY()+massageBox.getHeight()+10,
+//                massageBox.getWidth(),
+//                massageBox.getHeight()/2, myDefaultFont);
+//
+//        JButton addContactButton = new JButton("הוסף איש קשר");
+//        addComponent(addContactButton, SCREEN_WIDTH-160,0,150,150, myDefaultFont);
+//    }
+
     public void returnTrue(){
         Scanner s= new Scanner(System.in);
         if(s.nextInt()==1)
@@ -89,7 +125,7 @@ public class initialPanel extends JPanel implements ActionListener {
         draw(g);
 
     }
-    public void secondwindow(Graphics g){
+    public void secondWindow(Graphics g){
         this.setBackground(Color.MAGENTA);
         g.setColor(Color.GREEN);
     }
@@ -111,7 +147,7 @@ public class initialPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (running) {
-            repaint();
+
 
         }
     }

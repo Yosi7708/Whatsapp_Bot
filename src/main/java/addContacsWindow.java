@@ -13,7 +13,6 @@ public class addContacsWindow extends JFrame {
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
         //פקודת יישור מימין לשמאל,ויזואלית יפה יותר ל"הוסף מספר" אבל עובדת גם בתיבות טקסט...
         component.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-
         component.setBounds(x, y, width, height);
         component.setFont(font);
         this.add(component);
@@ -22,12 +21,27 @@ public class addContacsWindow extends JFrame {
     public void addNumber(JButton button, JTextField name, JTextField number) {
         button.addActionListener((event) -> {
             String userName= name.getText();
-            String userNum = number.getText();
+            String userNumber = number.getText();
+
+//            if (userName.length()<2 && (userNumber.charAt(0)!=0 && userNumber.charAt(1)!=5 && userNumber.length()<10) ) {
+//
+//                JOptionPane.showMessageDialog(null, "Enter valid Name and Number");
+//            }
 
 
-            this.contactsList.add(new Contacts(userName, userNum));
-            name.setText("");
-            number.setText("");
+            if (userName.length()<2) {
+                JOptionPane.showMessageDialog(null, "Enter valid Name");
+            }
+            else if(userNumber.charAt(0)!=0 && userNumber.charAt(1)!=5 && userNumber.length()<10) {
+                JOptionPane.showMessageDialog(null, "Enter valid Number");
+            }
+             else{
+                    this.contactsList.add(new Contacts(userName, userNumber));
+                }
+
+                name.setText("");
+                number.setText("");
+
             //הדפסת הרשימה העכשווית לקונסוך לצוקך בדיקה בלבד
             print();
 
@@ -68,7 +82,7 @@ public class addContacsWindow extends JFrame {
         addComponent(saveButton, numFiled.getX() , numFiled.getY()+numFiled.getHeight()+10,
                 numFiled.getWidth(),
                 numFiled.getHeight()/2, new Font("David", Font.ITALIC, 20));
-        addNumber(saveButton, numFiled, nameFiled);
+        addNumber(saveButton, nameFiled, numFiled);
 
 
     }
