@@ -31,6 +31,7 @@ public class MainPanel extends JPanel {
         this.setBackground(new Color(255,253,208));
         this.setLayout(null);
 
+
         JTextField massageBox = new JTextField();
         massageBox.setBackground(Color.LIGHT_GRAY);
         addComponent(massageBox,(SCREEN_WIDTH-Elemnts_Width)/2,SCREEN_HEIGHT/2,Elemnts_Width,100,myDefaultFont);
