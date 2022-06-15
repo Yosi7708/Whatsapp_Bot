@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -43,16 +44,19 @@ public class Main {
                 //        driver.get("https://web.whatsapp.com/send?phone=972"+phone.substring(1)+"&text="+msg+"&app_absent=0");
 //            driver.get("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
                 Thread.sleep(4000);
-                WebElement messageText = driver.findElement(By.xpath("//div[@id='main']/footer/div/div/span[2]/div/div[2]/div/div/div[2]"));
-                messageText.sendKeys("היי "+x.getName()+" "+msg);
+                WebElement messageText = driver.findElement(By.cssSelector("div#main > footer > div > div > span:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2)"));
+
+
+//                WebElement messageText = driver.findElement(By.xpath("//div[@id='main']/footer/div/div/span[2]/div/div[2]/div/div/div[2]"));
+                messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
 
 //        WebElement element = driver.findElement(By.xpath("//div[@title='הקלדת ההודעה']"));
 //        element.sendKeys("ffff");
 
 
 
-                WebElement button = driver.findElement(By.xpath("//span[@data-testid=\"send\"]"));
-                button.click();
+//                WebElement button = driver.findElement(By.xpath("//span[@data-testid=\"send\"]"));
+//                button.click();
                 Thread.sleep(3000);
                 continue;
 //       driver.findElement(By.id("send")).click();
