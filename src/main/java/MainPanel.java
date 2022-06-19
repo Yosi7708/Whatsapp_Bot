@@ -31,9 +31,24 @@ public class MainPanel extends JPanel {
         this.setBackground(new Color(255,253,208));
         this.setLayout(null);
 
+//        JButton connect= new JButton("connect");
+//        this.add(connect).setBounds(300,400,100,50);
 
-        JLabel connected= new JLabel("successfully!");
-        addComponent(connected,10,10,100,50,myDefaultFont);
+//        connect.addActionListener((event) -> {
+//            try{
+//                Main.openBrowser();
+//
+//            }catch (Exception e){
+//
+//            }
+//
+//
+//
+//        });
+
+
+//        JLabel connected= new JLabel("successfully!");
+//        addComponent(connected,10,10,100,50,myDefaultFont);
 
 
 
@@ -64,6 +79,7 @@ public class MainPanel extends JPanel {
                 if (!addContacsWindow.checkIfContactsListEmpty()) {
                     try {
                         Main.sendMessage(addContacsWindow.getContactsList(), msg);
+                        Thread.sleep(5000);
                     } catch (Exception e) {
                     }
                 } else {
@@ -75,9 +91,8 @@ public class MainPanel extends JPanel {
 
         });
 
-
-
-
+        if(Main.isSent)
+            reportScreen();
     }
 
 
@@ -107,6 +122,11 @@ public class MainPanel extends JPanel {
 
         JButton addContactButton = new JButton("הוסף איש קשר");
         addComponent(addContactButton, SCREEN_WIDTH-160,0,150,150, myDefaultFont);
+    }
+    public void reportScreen(){
+        this.removeAll();
+        this.add(new JLabel("Done"));
+        this.revalidate();
     }
 
 

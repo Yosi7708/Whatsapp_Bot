@@ -4,15 +4,32 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
+    public static boolean isConnected=false;
+    public static boolean isSent=false;
+
     static ChromeDriver driver;
+    public static LinkedList<Contacts> failed = new LinkedList<Contacts>();
+
     public static void main(String[]  args) throws Exception{
         System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
-       new MainWindows();
 
+        new MainWindows();
+
+    }
+    public static void checkIfConnected() {
+        while (!isConnected) {
+            try {
+                driver.findElement(By.className("_3aF8K"));
+                isConnected = false;
+            } catch (Exception e) {
+                isConnected = true;
+            }
+        }
     }
     public static void openBrowser() throws InterruptedException {
         boolean isConnected= false;
@@ -40,18 +57,16 @@ public class Main {
         for(Contacts x: contactsList){
 
             try {
+
                 driver.navigate().to("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
                 //        driver.get("https://web.whatsapp.com/send?phone=972"+phone.substring(1)+"&text="+msg+"&app_absent=0");
 //            driver.get("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
-                Thread.sleep(4000);
+                Thread.sleep(6000);
                 WebElement messageText = driver.findElement(By.cssSelector("div#main > footer > div > div > span:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2)"));
 
 
-//                WebElement messageText = driver.findElement(By.xpath("//div[@id='main']/footer/div/div/span[2]/div/div[2]/div/div/div[2]"));
                 messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
 
-//        WebElement element = driver.findElement(By.xpath("//div[@title='הקלדת ההודעה']"));
-//        element.sendKeys("ffff");
 
 
 
@@ -62,7 +77,7 @@ public class Main {
 //       driver.findElement(By.id("send")).click();
 
             }catch (Exception e) {
-//                failed.add(new Contacts(x));
+                failed.add(new Contacts(x));
                 continue;
             }
 
@@ -80,7 +95,15 @@ public class Main {
 //        System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
 //        System.out.println("failed list");
 //        System.out.println(failed.toString());
+           isSent=true;
 
     }
+//    public static void print(){
+//        System.out.println(report());
+//    }
+//    public static String report(){
+//        String report ="the message was sent to";
+//        return report+ (addContacsWindow.contactsList.size()-failed.size());
+//    }
 
 }

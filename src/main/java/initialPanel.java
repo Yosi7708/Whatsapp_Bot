@@ -14,13 +14,14 @@ public class initialPanel extends JPanel implements ActionListener {
 
 
     initialPanel() {
+        JLabel connected=new JLabel("YOURE SUCCSSEFULY CONNECTED!");
         JPanel jPanel= new JPanel();
         this.add(jPanel);
+        jPanel.setLayout(null);
         jPanel.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         jPanel.setBackground(new Color(245,245,220));
         JButton connect= new JButton("connect");
-        jPanel.add(connect);
-        connect.setBounds(jPanel.getX()/2,jPanel.getHeight()/2,150,100);
+        jPanel.add(connect).setBounds(SCREEN_WIDTH/2,SCREEN_HEIGHT/2,200,100);
         connect.setVisible(true);
         this.setFocusable(true);
 
@@ -36,14 +37,19 @@ public class initialPanel extends JPanel implements ActionListener {
         connect.addActionListener((event) -> {
             try{
                 Main.openBrowser();
+                jPanel.add(connected).setBounds(connect.getX(),connect.getY()+connect.getHeight(),connect.getWidth(),connect.getHeight());
+                jPanel.revalidate();
+                Thread.sleep(5000);
+
 
             }catch (Exception e){
 
             }
+            Main.checkIfConnected();
+            if (Main.isConnected)
+            secondPanel();
 
 
-
-            successPanel();
 
         });
 

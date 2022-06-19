@@ -7,7 +7,7 @@ public class addContacsWindow extends JFrame {
 
     private final static int WIDTH = 500;
     private final static int HEIGHT = 500;
-    private static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
+    public static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
 
 
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
