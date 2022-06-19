@@ -12,7 +12,7 @@ public class Main {
     public static boolean isConnected=false;
     public static boolean isSent=false;
 
-    static ChromeDriver driver;
+    static ChromeDriver driver; // for test
     public static LinkedList<Contacts> failed = new LinkedList<Contacts>();
 
     public static void main(String[]  args) throws Exception{
