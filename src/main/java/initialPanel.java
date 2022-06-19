@@ -21,7 +21,7 @@ public class initialPanel extends JPanel implements ActionListener {
         jPanel.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         jPanel.setBackground(new Color(245,245,220));
         JButton connect= new JButton("connect");
-        jPanel.add(connect).setBounds(SCREEN_WIDTH/2,SCREEN_HEIGHT/2,200,100);
+        jPanel.add(connect).setBounds(SCREEN_WIDTH/2-100,SCREEN_HEIGHT/2-50,200,100);
         connect.setVisible(true);
         this.setFocusable(true);
 
@@ -48,14 +48,7 @@ public class initialPanel extends JPanel implements ActionListener {
             Main.checkIfConnected();
             if (Main.isConnected)
             secondPanel();
-
-
-
         });
-
-
-
-
 
     }
     public void successPanel() {

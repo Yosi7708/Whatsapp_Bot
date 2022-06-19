@@ -16,7 +16,7 @@ public class Main {
     public static LinkedList<Contacts> failed = new LinkedList<Contacts>();
 
     public static void main(String[]  args) throws Exception{
-        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver" , "C:\\DriverForGame\\chromedriver.exe");
 
         new MainWindows();
 
@@ -33,7 +33,7 @@ public class Main {
     }
     public static void openBrowser() throws InterruptedException {
         boolean isConnected= false;
-        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver" , "C:\\DriverForGame\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         driver=new ChromeDriver(options);
 
@@ -47,7 +47,7 @@ public class Main {
     public static void sendMessage(LinkedList<Contacts> contactsList, String msg) throws Exception{
 
 
-        System.setProperty("webdriver.chrome.driver","C:\\files2\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver" , "C:\\DriverForGame\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("user-data-dir=C:\\Users\\tzirkus\\AppData\\Local\\Google\\Chrome\\User Data");
 //        ChromeDriver driver = new ChromeDriver(options);

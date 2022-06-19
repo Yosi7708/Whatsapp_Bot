@@ -18,7 +18,7 @@ public class addContacsWindow extends JFrame {
         this.add(component);
     }
 
-    public void addNumber(JButton button, JTextField name, JTextField number) {
+    public void addNumber(JButton button,JTextField name, JTextField number) {
         button.addActionListener((event) -> {
             String userName= name.getText();
             String userNumber = number.getText();
@@ -48,8 +48,8 @@ public class addContacsWindow extends JFrame {
         });
 
 
-
     }
+
     public void print(){
         System.out.println(contactsList.toString());
     }
@@ -64,16 +64,18 @@ public class addContacsWindow extends JFrame {
         this.setLayout(null);
 
 
-        JLabel msg = new JLabel(" הכנס מספר");
-        addComponent(msg, WIDTH / 2-75, 20, 150, 100, new Font("David", Font.ITALIC, 20));
+        JLabel name = new JLabel(" הכנס שם");
+        addComponent(name, WIDTH / 2-75, 20, 150, 50, new Font("David", Font.ITALIC, 20));
 
         JTextField nameFiled = new JTextField();
-        addComponent(nameFiled, msg.getX(), msg.getY() + msg.getHeight(), msg.getWidth(), msg.getHeight(), new Font("David", Font.ITALIC, 20));
+        addComponent(nameFiled, name.getX(), name.getY() + name.getHeight(), name.getWidth(), name.getHeight()+20, new Font("David", Font.ITALIC, 20));
         nameFiled.setBackground(Color.LIGHT_GRAY);
 
+        JLabel number = new JLabel(" הכנס  מספר");
+        addComponent(number, nameFiled.getX(), nameFiled.getY() + nameFiled.getHeight(), nameFiled.getWidth(), name.getHeight(), new Font("David", Font.ITALIC, 20));
 
         JTextField numFiled = new JTextField();
-        addComponent(numFiled, nameFiled.getX(), nameFiled.getY() + nameFiled.getHeight()+10, nameFiled.getWidth(), nameFiled.getHeight(), new Font("David", Font.ITALIC, 20));
+        addComponent(numFiled, number.getX(), number.getY() + number.getHeight(), number.getWidth(), number.getHeight()+20, new Font("David", Font.ITALIC, 20));
         numFiled.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
 
@@ -81,8 +83,10 @@ public class addContacsWindow extends JFrame {
         JButton saveButton = new JButton("שמור והוסף");
         addComponent(saveButton, numFiled.getX() , numFiled.getY()+numFiled.getHeight()+10,
                 numFiled.getWidth(),
-                numFiled.getHeight()/2, new Font("David", Font.ITALIC, 20));
-        addNumber(saveButton, nameFiled, numFiled);
+                numFiled.getHeight(), new Font("David", Font.ITALIC, 20));
+
+
+        addNumber(saveButton ,nameFiled, numFiled);
 
 
     }
