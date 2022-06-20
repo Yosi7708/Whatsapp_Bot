@@ -11,6 +11,8 @@ public class initialPanel extends JPanel implements ActionListener {
     private  static final int SCREEN_HEIGHT = 800;
     private static boolean running= false;
 
+    ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
+
 
 
     initialPanel() {
@@ -130,7 +132,7 @@ public class initialPanel extends JPanel implements ActionListener {
     }
 
     public void draw(Graphics g) {
-
+        g.drawImage(logo.getImage(),0,0,null);
         if (running) {
             //מסך פתיחה
             Welcome(g);

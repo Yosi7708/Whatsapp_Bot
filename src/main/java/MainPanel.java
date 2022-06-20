@@ -6,8 +6,7 @@ public class MainPanel extends JPanel {
      private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
      private static final int SCREEN_HEIGHT = 800;
      private static final int Elemnts_Width=200;
-
-
+    ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
     JButton sendButton;
     JButton Exit;
    private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
@@ -92,17 +91,16 @@ public class MainPanel extends JPanel {
             reportScreen();
     }
 
-
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         draw(g);
+
     }
 
     public void draw(Graphics g) {
-        //כאן יבוא לוגו תמונה ווטסאפ
-        g.setColor(Color.GREEN);
-        g.fillOval((SCREEN_WIDTH-Elemnts_Width)/2,0,Elemnts_Width,Elemnts_Width);
+        g.drawImage(logo.getImage(),0,0,null);
+      //  g.setColor(Color.GREEN);
+      //  g.fillOval((SCREEN_WIDTH-Elemnts_Width)/2,0,Elemnts_Width,Elemnts_Width);
     }
     public void second(){
         JTextField massageBox = new JTextField();
