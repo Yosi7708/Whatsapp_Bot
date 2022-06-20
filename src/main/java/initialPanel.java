@@ -11,7 +11,7 @@ public class initialPanel extends JPanel implements ActionListener {
     private  static final int SCREEN_HEIGHT = 800;
     private static boolean running= false;
 
-    ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
+    ImageIcon logo = new ImageIcon("WhatsApp.jpg");
 
 
 
@@ -114,9 +114,6 @@ public class initialPanel extends JPanel implements ActionListener {
         g.setColor(Color.blue);
         JLabel hiMessage = new JLabel("hi");
         this.add(hiMessage);
-
-
-
     }
 
     // פונקציות הציור למסך
@@ -141,10 +138,6 @@ public class initialPanel extends JPanel implements ActionListener {
 
         }
     }
-
-
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (running) {
