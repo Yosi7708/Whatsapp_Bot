@@ -7,7 +7,8 @@ public class addContacsWindow extends JFrame {
 
     private final static int WIDTH = 500;
     private final static int HEIGHT = 500;
-    public static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
+    private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
+   protected static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
 
 
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
@@ -15,6 +16,8 @@ public class addContacsWindow extends JFrame {
         component.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         component.setBounds(x, y, width, height);
         component.setFont(font);
+        MainPanel main = new MainPanel();
+        this.add(main);
         this.add(component);
     }
 
@@ -22,38 +25,26 @@ public class addContacsWindow extends JFrame {
         button.addActionListener((event) -> {
             String userName= name.getText();
             String userNumber = number.getText();
-
-//            if (userName.length()<2 && (userNumber.charAt(0)!=0 && userNumber.charAt(1)!=5 && userNumber.length()<10) ) {
-//
-//                JOptionPane.showMessageDialog(null, "Enter valid Name and Number");
-//            }
-
-
             if (userName.length()<2) {
                 JOptionPane.showMessageDialog(null, "Enter valid Name");
             }
             else if(userNumber.charAt(0)!=0 && userNumber.charAt(1)!=5 && userNumber.length()<10) {
                 JOptionPane.showMessageDialog(null, "Enter valid Number");
             }
-             else{
-                    this.contactsList.add(new Contacts(userName, userNumber));
-                }
-
-                name.setText("");
-                number.setText("");
+            else{
+                this.contactsList.add(new Contacts(userName, userNumber));
+            }
+            name.setText("");
+            number.setText("");
 
             //הדפסת הרשימה העכשווית לקונסוך לצוקך בדיקה בלבד
             print();
-
         });
-
-
     }
 
     public void print(){
         System.out.println(contactsList.toString());
     }
-
 
     public addContacsWindow() {
 
@@ -65,17 +56,17 @@ public class addContacsWindow extends JFrame {
 
 
         JLabel name = new JLabel(" הכנס שם");
-        addComponent(name, WIDTH / 2-75, 20, 150, 50, new Font("David", Font.ITALIC, 20));
+        addComponent(name, WIDTH / 2-75, 20, 150, 50,myDefaultFont);
 
         JTextField nameFiled = new JTextField();
-        addComponent(nameFiled, name.getX(), name.getY() + name.getHeight(), name.getWidth(), name.getHeight()+20, new Font("David", Font.ITALIC, 20));
+        addComponent(nameFiled, name.getX(), name.getY() + name.getHeight(), name.getWidth(), name.getHeight()+20, myDefaultFont);
         nameFiled.setBackground(Color.LIGHT_GRAY);
 
         JLabel number = new JLabel(" הכנס  מספר");
-        addComponent(number, nameFiled.getX(), nameFiled.getY() + nameFiled.getHeight(), nameFiled.getWidth(), name.getHeight(), new Font("David", Font.ITALIC, 20));
+        addComponent(number, nameFiled.getX(), nameFiled.getY() + nameFiled.getHeight(), nameFiled.getWidth(), name.getHeight(),myDefaultFont);
 
         JTextField numFiled = new JTextField();
-        addComponent(numFiled, number.getX(), number.getY() + number.getHeight(), number.getWidth(), number.getHeight()+20, new Font("David", Font.ITALIC, 20));
+        addComponent(numFiled, number.getX(), number.getY() + number.getHeight(), number.getWidth(), number.getHeight()+20, myDefaultFont);
         numFiled.setBackground(Color.LIGHT_GRAY);
         this.setVisible(true);
 

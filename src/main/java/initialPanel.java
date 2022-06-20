@@ -7,9 +7,9 @@ import java.util.Timer;
 public class initialPanel extends JPanel implements ActionListener {
 
 
-    static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
-    static final int SCREEN_HEIGHT = 800;
-    static boolean running= false;
+    private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
+    private  static final int SCREEN_HEIGHT = 800;
+    private static boolean running= false;
 
 
 

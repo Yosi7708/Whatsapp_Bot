@@ -3,14 +3,14 @@ import java.awt.*;
 
 public class MainPanel extends JPanel {
 
-    static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
-    static final int SCREEN_HEIGHT = 800;
-    static final int Elemnts_Width=200;
+     private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
+     private static final int SCREEN_HEIGHT = 800;
+     private static final int Elemnts_Width=200;
 
 
     JButton sendButton;
     JButton Exit;
-    Font myDefaultFont = new Font("David", Font.PLAIN ,20);
+   private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
 
 
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
@@ -21,8 +21,6 @@ public class MainPanel extends JPanel {
         component.setFont(font);
         this.add(component);
     }
-
-
     MainPanel() {
 
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
@@ -30,7 +28,6 @@ public class MainPanel extends JPanel {
         this.setFocusable(true);
         this.setBackground(new Color(255,253,208));
         this.setLayout(null);
-
 //        JButton connect= new JButton("connect");
 //        this.add(connect).setBounds(300,400,100,50);
 
@@ -106,9 +103,6 @@ public class MainPanel extends JPanel {
         //כאן יבוא לוגו תמונה ווטסאפ
         g.setColor(Color.GREEN);
         g.fillOval((SCREEN_WIDTH-Elemnts_Width)/2,0,Elemnts_Width,Elemnts_Width);
-
-
-
     }
     public void second(){
         JTextField massageBox = new JTextField();
