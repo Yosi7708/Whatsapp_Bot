@@ -9,7 +9,7 @@ public class MainPanel extends JPanel {
     ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
     JButton sendButton;
     JButton Exit;
-   private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
+     private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
 
 
     public void addComponent(Component component, int x, int y, int width, int height, Font font) {
