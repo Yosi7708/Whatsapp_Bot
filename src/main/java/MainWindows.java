@@ -3,7 +3,7 @@ import javax.swing.*;
 public class MainWindows extends JFrame {
     MainWindows() {
         // הגדרת חלון בסיסית
-        this.add(new initialPanel());
+        this.add(new InitialPanel());
         this.setTitle("WhatsappBot");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.util.Scanner;
 import java.util.Timer;
 
-public class initialPanel extends JPanel implements ActionListener {
+public class InitialPanel extends JPanel implements ActionListener {
 
 
     private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
@@ -14,7 +14,7 @@ public class initialPanel extends JPanel implements ActionListener {
 
 
 
-    initialPanel() {
+    InitialPanel() {
         JLabel connected=new JLabel("YOURE SUCCSSEFULY CONNECTED!");
         JPanel jPanel= new JPanel();
         this.add(jPanel);
