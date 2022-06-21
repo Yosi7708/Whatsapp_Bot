@@ -60,15 +60,15 @@ public class Main {
                 //        driver.get("https://web.whatsapp.com/send?phone=972"+phone.substring(1)+"&text="+msg+"&app_absent=0");
 //            driver.get("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
                 Thread.sleep(6000);
-                WebElement messageText = driver.findElement(By.cssSelector("div#main > footer > div > div > span:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2)"));
+                WebElement messageText = driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt"));
 
                 messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
-
+                x.setSent(true);
 //                WebElement button = driver.findElement(By.xpath("//span[@data-testid=\"send\"]"));
 //                button.click();
                 Thread.sleep(3000);
                 continue;
-//       driver.findElement(By.id("send")).click();
+//              driver.findElement(By.id("send")).click();
 
             }catch (Exception e) {
                 failed.add(new Contacts(x));
@@ -82,7 +82,8 @@ public class Main {
 //        System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());
 //        System.out.println("failed list");
 //        System.out.println(failed.toString());
-           isSent=true;
+           //isSent=true;
+
 
     }
 //    public static void print(){

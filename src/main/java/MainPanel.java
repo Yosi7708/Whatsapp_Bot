@@ -52,6 +52,8 @@ public class MainPanel extends JPanel {
             new addContacsWindow();
 
         });
+        JLabel report = new JLabel("Report");
+        report.setSize(getWidth(),getHeight());
 
         sendButton.addActionListener((event) -> {
             String msg= massageBox.getText();
@@ -70,7 +72,17 @@ public class MainPanel extends JPanel {
                 }
 
             }
+            report.setText("<html>"+report.getText());
+            for (Contacts contacts:addContacsWindow.getContactsList()
+                 ) {
+                report.setText(report.getText()+"<br>"+contacts.toString());
 
+            }
+            report.setText(report.getText()+"<html>");
+            this.add(report);
+            addContactButton.setVisible(false);
+            massageBox.setVisible(false);
+            sendButton.setVisible(false);
         });
 
         if(Main.isSent)
