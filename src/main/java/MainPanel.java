@@ -72,6 +72,7 @@ public class MainPanel extends JPanel {
                         }
                         report.setText(report.getText()+"<html>");
                         this.add(report);
+                        report.setVisible(true);
                         addContactButton.setVisible(false);
                         massageBox.setVisible(false);
                         sendButton.setVisible(false);
