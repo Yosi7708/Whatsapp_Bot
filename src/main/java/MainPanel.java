@@ -64,25 +64,29 @@ public class MainPanel extends JPanel {
                     try {
                         Main.sendMessage(addContacsWindow.getContactsList(), msg);
                         Thread.sleep(5000);
+                        report.setText("<html>"+report.getText());
+                        for (Contacts contacts:addContacsWindow.getContactsList()
+                        ) {
+                            report.setText(report.getText()+"<br>"+contacts.toString());
+
+                        }
+                        report.setText(report.getText()+"<html>");
+                        this.add(report);
+                        report.setVisible(true);
+                        addContactButton.setVisible(false);
+                        massageBox.setVisible(false);
+                        sendButton.setVisible(false);
                     } catch (Exception e) {
                     }
                 } else {
-                    //כמובן להדפיס לממשק ולא לקונסול
-                    System.out.println("first , add contacts");
+                    JOptionPane.showMessageDialog(new JFrame(),
+                            "please enter contact",
+                            "error",
+                            JOptionPane.PLAIN_MESSAGE);
                 }
 
             }
-            report.setText("<html>"+report.getText());
-            for (Contacts contacts:addContacsWindow.getContactsList()
-                 ) {
-                report.setText(report.getText()+"<br>"+contacts.toString());
 
-            }
-            report.setText(report.getText()+"<html>");
-            this.add(report);
-            addContactButton.setVisible(false);
-            massageBox.setVisible(false);
-            sendButton.setVisible(false);
         });
 
         if(Main.isSent)
