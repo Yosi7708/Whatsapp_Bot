@@ -27,20 +27,6 @@ public class MainPanel extends JPanel {
         this.setFocusable(true);
         this.setBackground(new Color(255,253,208));
         this.setLayout(null);
-//        JButton connect= new JButton("connect");
-//        this.add(connect).setBounds(300,400,100,50);
-
-//        connect.addActionListener((event) -> {
-//            try{
-//                Main.openBrowser();
-//
-//            }catch (Exception e){
-//
-//            }
-//
-//
-//
-//        });
 
 
 //        JLabel connected= new JLabel("successfully!");

@@ -41,9 +41,7 @@ public class Main {
         driver.get("https://web.whatsapp.com/");
         Thread.sleep(3000);
 
-
     }
-
     public static void sendMessage(LinkedList<Contacts> contactsList, String msg) throws Exception{
 
 
@@ -64,11 +62,7 @@ public class Main {
                 Thread.sleep(6000);
                 WebElement messageText = driver.findElement(By.cssSelector("div#main > footer > div > div > span:nth-of-type(2) > div > div:nth-of-type(2) > div > div > div:nth-of-type(2)"));
 
-
                 messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
-
-
-
 
 //                WebElement button = driver.findElement(By.xpath("//span[@data-testid=\"send\"]"));
 //                button.click();
@@ -80,14 +74,7 @@ public class Main {
                 failed.add(new Contacts(x));
                 continue;
             }
-
-
-
-
         }
-
-
-
 //        Thread.sleep(10000);
 //        driver.quit();
 

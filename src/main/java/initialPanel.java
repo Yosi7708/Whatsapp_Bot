@@ -10,8 +10,7 @@ public class initialPanel extends JPanel implements ActionListener {
     private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
     private  static final int SCREEN_HEIGHT = 800;
     private static boolean running= false;
-
-    ImageIcon logo = new ImageIcon("WhatsApp.jpg");
+    ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
 
 
 
@@ -32,10 +31,6 @@ public class initialPanel extends JPanel implements ActionListener {
         }catch(Exception e){
 
         }
-
-
-
-
         connect.addActionListener((event) -> {
             try{
                 Main.openBrowser();
@@ -134,8 +129,6 @@ public class initialPanel extends JPanel implements ActionListener {
             //מסך פתיחה
             Welcome(g);
             this.setBackground(Color.orange);
-
-
         }
     }
     @Override
