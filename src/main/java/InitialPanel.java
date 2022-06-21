@@ -6,13 +6,10 @@ import java.util.Timer;
 
 public class InitialPanel extends JPanel implements ActionListener {
 
-
     private static final int SCREEN_WIDTH = 600;//גודל הפאנל (וגודל החלון יחושב אוטומטית ע"י פונקציית pack )
     private  static final int SCREEN_HEIGHT = 800;
     private static boolean running= false;
     ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
-
-
 
     InitialPanel() {
         JLabel connected=new JLabel("YOURE SUCCSSEFULY CONNECTED!");
@@ -68,40 +65,20 @@ public class InitialPanel extends JPanel implements ActionListener {
         this.revalidate();
 
     }
-//    public void second(){
-//        JTextField massageBox = new JTextField();
-//        massageBox.setBackground(Color.LIGHT_GRAY);
-//        addComponent(massageBox,(SCREEN_WIDTH-Elemnts_Width)/2,SCREEN_HEIGHT/2,Elemnts_Width,100,myDefaultFont);
-//
-//        JButton sendButton = new JButton("שלח הודעה");
-//        addComponent(sendButton, massageBox.getX() , massageBox.getY()+massageBox.getHeight()+10,
-//                massageBox.getWidth(),
-//                massageBox.getHeight()/2, myDefaultFont);
-//
-//        JButton addContactButton = new JButton("הוסף איש קשר");
-//        addComponent(addContactButton, SCREEN_WIDTH-160,0,150,150, myDefaultFont);
-//    }
 
     public void returnTrue(){
         Scanner s= new Scanner(System.in);
         if(s.nextInt()==1)
             running=true;
         repaint();
-
-
     }
     public void mainWindow(Graphics g){
 
         repaint();
     }
-
     //אתחול המשתנים בתחילת המשחק ובמקרה של פסילה
     public void ResetGame() {
-
-
         repaint();
-
-
     }
     // מסך פתיחה
 

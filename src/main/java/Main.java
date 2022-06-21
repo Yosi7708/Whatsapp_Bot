@@ -44,28 +44,20 @@ public class Main {
     }
     public static void sendMessage(LinkedList<Contacts> contactsList, String msg) throws Exception{
 
-
         System.setProperty("webdriver.chrome.driver" , "C:\\DriverForGame\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("user-data-dir=C:\\Users\\tzirkus\\AppData\\Local\\Google\\Chrome\\User Data");
-//        ChromeDriver driver = new ChromeDriver(options);
-//        options.addArguments("--start-maximized");
-//        driver.get("https://web.whatsapp.com/");
 
         for(Contacts x: contactsList){
 
             try {
 
                 driver.navigate().to("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
-                //        driver.get("https://web.whatsapp.com/send?phone=972"+phone.substring(1)+"&text="+msg+"&app_absent=0");
-//            driver.get("https://web.whatsapp.com/send?phone=972"+x.getNumber().substring(1)+"&text&app_absent=0");
+
                 Thread.sleep(6000);
                 WebElement messageText = driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt"));
 
                 messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
                 x.setSent(true);
-//                WebElement button = driver.findElement(By.xpath("//span[@data-testid=\"send\"]"));
-//                button.click();
                 Thread.sleep(3000);
                 continue;
 //              driver.findElement(By.id("send")).click();
@@ -75,8 +67,8 @@ public class Main {
                 continue;
             }
         }
-//        Thread.sleep(10000);
-//        driver.quit();
+        //Thread.sleep(10000);
+    //   driver.quit();
 
 
 //        System.out.println("Done "+(contacts.size()-failed.size())+"/"+contacts.size());

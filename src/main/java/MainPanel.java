@@ -7,8 +7,6 @@ public class MainPanel extends JPanel {
      private static final int SCREEN_HEIGHT = 800;
      private static final int Elemnts_Width=200;
     ImageIcon logo = new ImageIcon("WhatsApp-Logo.jpg");
-    JButton sendButton;
-    JButton Exit;
      private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
 
 
@@ -27,11 +25,6 @@ public class MainPanel extends JPanel {
         this.setFocusable(true);
         this.setBackground(new Color(255,253,208));
         this.setLayout(null);
-
-
-//        JLabel connected= new JLabel("successfully!");
-//        addComponent(connected,10,10,100,50,myDefaultFont);
-
 
 
         JTextField massageBox = new JTextField();

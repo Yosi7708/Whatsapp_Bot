@@ -4,7 +4,6 @@ import java.util.LinkedList;
 
 public class addContacsWindow extends JFrame {
 
-
     private final static int WIDTH = 500;
     private final static int HEIGHT = 500;
     private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
@@ -91,7 +90,5 @@ public class addContacsWindow extends JFrame {
     public static void main(String[] args) throws Exception {
             new addContacsWindow();
 
-
     }
-
 }
