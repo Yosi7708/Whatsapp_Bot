@@ -54,7 +54,8 @@ public class MainPanel extends JPanel {
         });
         JLabel report = new JLabel("Report");
         report.setSize(getWidth(),getHeight());
-
+        report.setVisible(false);
+        this.add(report);
         sendButton.addActionListener((event) -> {
             String msg= massageBox.getText();
             if(msg.equals(""))
@@ -71,7 +72,6 @@ public class MainPanel extends JPanel {
 
                         }
                         report.setText(report.getText()+"<html>");
-                        this.add(report);
                         report.setVisible(true);
                         addContactButton.setVisible(false);
                         massageBox.setVisible(false);
