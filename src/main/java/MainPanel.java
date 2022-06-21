@@ -71,7 +71,9 @@ public class MainPanel extends JPanel {
 
                         }
                         report.setText(report.getText()+"<html>");
-                        this.add(report);
+                        JOptionPane.showMessageDialog(new JFrame(),report.getText(),
+                                "error",
+                                JOptionPane.PLAIN_MESSAGE);
                         report.setVisible(true);
                         addContactButton.setVisible(false);
                         massageBox.setVisible(false);
