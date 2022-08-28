@@ -7,10 +7,12 @@ public class addContacsWindow extends JFrame {
     private final static int WIDTH = 500;
     private final static int HEIGHT = 500;
     private Font myDefaultFont = new Font("David", Font.PLAIN ,20);
+
+    private Font font = new Font("David", Font.ITALIC, 20);
    protected static LinkedList<Contacts> contactsList = new LinkedList<Contacts>();
 
 
-    public void addComponent(Component component, int x, int y, int width, int height, Font font) {
+    public void addComponent(Component component, int x, int y, int width, int height, Font font) throws InterruptedException {
         //פקודת יישור מימין לשמאל,ויזואלית יפה יותר ל"הוסף מספר" אבל עובדת גם בתיבות טקסט...
         component.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         component.setBounds(x, y, width, height);
@@ -20,32 +22,38 @@ public class addContacsWindow extends JFrame {
         this.add(component);
     }
 
-    public void addNumber(JButton button,JTextField name, JTextField number) {
+    public void addNumber(JButton finish, JButton button,JTextField name, JTextField number) {
         button.addActionListener((event) -> {
-            String userName= name.getText();
-            String userNumber = number.getText();
-            if (userName.length()<2) {
-                JOptionPane.showMessageDialog(null, "Enter valid Name");
-            }
-            else if(userNumber.charAt(0)!=0 && userNumber.charAt(1)!=5 && userNumber.length()<10) {
-                JOptionPane.showMessageDialog(null, "Enter valid Number");
-            }
-            else{
-                this.contactsList.add(new Contacts(userName, userNumber));
-            }
-            name.setText("");
-            number.setText("");
-
-            //הדפסת הרשימה העכשווית לקונסוך לצוקך בדיקה בלבד
-            print();
+            check(name,  number);
+        });
+        finish.addActionListener((event) -> {
+           check(name,  number);
+            this.setVisible(false);
         });
     }
+    public void check (JTextField name, JTextField number){
+        String userName= name.getText();
+        String userNumber = number.getText();
+        if (userName.length()<2||userName=="") {
+            JOptionPane.showMessageDialog(null, "Enter valid Name");
+        }
+        else if(userNumber.charAt(0)!=0 || userNumber.charAt(1)!=5 || userNumber.length()<10|| userNumber=="") {
+            JOptionPane.showMessageDialog(null, "Enter valid Number");
+        }
+        else{
+            this.contactsList.add(new Contacts(userName, userNumber));
+        }
+        name.setText("");
+        number.setText("");
 
+        //הדפסת הרשימה העכשווית לקונסוך לצורך בדיקה בלבד
+        print();
+    }
     public void print(){
         System.out.println(contactsList.toString());
     }
 
-    public addContacsWindow() {
+    public addContacsWindow() throws InterruptedException {
 
         this.setSize(WIDTH, HEIGHT);
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -73,10 +81,13 @@ public class addContacsWindow extends JFrame {
         JButton saveButton = new JButton("שמור והוסף");
         addComponent(saveButton, numFiled.getX() , numFiled.getY()+numFiled.getHeight()+10,
                 numFiled.getWidth(),
-                numFiled.getHeight(), new Font("David", Font.ITALIC, 20));
+                numFiled.getHeight(), font);
 
-
-        addNumber(saveButton ,nameFiled, numFiled);
+        JButton finish = new JButton("שמור וסיים");
+        addComponent(finish, numFiled.getX() , saveButton.getY()+saveButton.getHeight()+10,
+                numFiled.getWidth(),
+                numFiled.getHeight(), font);
+        addNumber(finish, saveButton ,nameFiled, numFiled);
 
 
     }

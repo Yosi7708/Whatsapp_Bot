@@ -40,12 +40,17 @@ public class InitialPanel extends JPanel implements ActionListener {
 
             }
             Main.checkIfConnected();
-            if (Main.isConnected)
-            secondPanel();
+            if (Main.isConnected) {
+                try {
+                    secondPanel();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
 
     }
-    public void successPanel() {
+    public void successPanel() throws InterruptedException {
         this.setLayout(new java.awt.BorderLayout());
         this.removeAll();
 
@@ -58,7 +63,7 @@ public class InitialPanel extends JPanel implements ActionListener {
         secondPanel();
 
     }
-    public void secondPanel(){
+    public void secondPanel() throws InterruptedException {
         JOptionPane.showMessageDialog(null,"successful");
         this.removeAll();
         this.add(new MainPanel());

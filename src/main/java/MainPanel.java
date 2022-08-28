@@ -18,7 +18,7 @@ public class MainPanel extends JPanel {
         component.setFont(font);
         this.add(component);
     }
-    MainPanel() {
+    MainPanel() throws InterruptedException {
 
         this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
         this.setBackground(Color.black);
@@ -42,7 +42,11 @@ public class MainPanel extends JPanel {
         this.revalidate();
 
         addContactButton.addActionListener((event) -> {
-            new addContacsWindow();
+            try {
+                new addContacsWindow();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
         });
         JLabel report = new JLabel("Report");
@@ -110,18 +114,14 @@ public class MainPanel extends JPanel {
         JButton addContactButton = new JButton("הוסף איש קשר");
         addComponent(addContactButton, SCREEN_WIDTH-160,0,150,150, myDefaultFont);
     }
-    public void reportScreen(){
+    public void reportScreen() {
         this.removeAll();
         this.add(new JLabel("Done"));
         this.revalidate();
+
+        //Thread.sleep(5000);
+     //  System.exit(0);
     }
-
-
-
-
-
-
-
 
 
 

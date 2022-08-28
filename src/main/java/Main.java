@@ -55,12 +55,13 @@ public class Main {
 
                 Thread.sleep(6000);
                 WebElement messageText = driver.findElement(By.className("_1LbR4")).findElement(By.className("_13NKt"));
+               // WebElement messageBox = driver.findElement(By.className("p3_M1"));
 
                 messageText.sendKeys("היי "+x.getName()+" "+msg, Keys.ENTER);
                 x.setSent(true);
                 Thread.sleep(3000);
                 continue;
-//              driver.findElement(By.id("send")).click();
+                //driver.findElement(By.id("send")).click();
 
             }catch (Exception e) {
                 failed.add(new Contacts(x));
